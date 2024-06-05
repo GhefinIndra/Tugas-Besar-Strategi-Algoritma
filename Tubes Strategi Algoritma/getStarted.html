@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="images/fevicon.png" type="">
+    <title>Truck Delivery Optimization</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- Fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: url('path/to/your/image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+        }
+        .form_container, .result_container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn_box {
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn_box button {
+            width: 48%;
+        }
+        .result_container {
+            margin-top: 20px;
+        }
+        .result_container h4 {
+            margin-bottom: 10px;
+        }
+        .result_container p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero_area">
+        <!-- header section starts -->
+        <header class="header_section">
+            <div class="header_top">
+                <div class="container-fluid">
+                    <div class="contact_nav">
+                        <a href=""><i class="fa fa-phone" aria-hidden="true"></i><span>Call: +6282277889911</span></a>
+                        <a href=""><i class="fa fa-envelope" aria-hidden="true"></i><span>Email: TruckDelivery@gmail.com</span></a>
+                        <a href=""><i class="fa fa-map-marker" aria-hidden="true"></i><span>Telkom University</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="header_bottom">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg custom_nav-container">
+                        <a class="navbar-brand" href="index.html"><span>TruckDeliveryPacket</span></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class=""> </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="about.html"> About</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
+                                <form class="form-inline">
+                                    <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </form>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!-- end header section -->
+
+        <!-- form and result section -->
+        <section class="contact_section layout_padding-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-5 offset-md-1">
+                        <div class="heading_container">
+                            <h2>Truck Delivery Optimization</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-5 offset-md-1">
+                        <div class="form_container">
+                            <form action="">
+                                <div class="form-group">
+                                    <h4>Input Barang</h4>
+                                    <input type="text" class="form-control" placeholder="Input Barang" id="barang" />
+                                </div>
+                                <div class="form-group">
+                                    <h4>Berat Barang</h4>
+                                    <input type="text" class="form-control" placeholder="Berat Barang" id="beratBarang" />
+                                </div>
+                                <div class="form-group">
+                                    <h4>Profit Barang</h4>
+                                    <input type="text" class="form-control" placeholder="Profit Barang" id="profitBarang" />
+                                </div>
+                                <div class="form-group">
+                                    <h4>Kapasitas Barang</h4>
+                                    <input type="text" class="form-control" placeholder="Kapasitas Truk" id="kapasitasBarang" />
+                                </div>
+                                <div class="btn_box">
+                                    <button class="btn btn-primary" onclick="addItem(event)">SEND</button>
+                                    <button class="btn btn-secondary" onclick="calculate(event)">CALCULATE</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 offset-md-1">
+                        <div class="result_container">
+                            <h4>Items Added:</h4>
+                            <p id="itemsAdded"></p>
+                            <h4>Hasil Greedy:</h4>
+                            <p id="greedyResult"></p>
+                            <h4>Hasil Dynamic Programming:</h4>
+                            <p id="dpResult"></p>
+                            <p id="conclusionResult"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="js/calculate.js"></script>
+</body>
+</html>
